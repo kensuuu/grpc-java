@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.kensuuu.user";
+
+package user;
+
+service UserService {
+  rpc GetUser(GetUserRequest) returns (User) {}
+}
+
+message GetUserRequest {
+  // ユーザID
+  // 必須
+  string name = 1;
+}
+
+message User {
+  // ユーザ名
+  string user_name = 1;
+  // メールアドレス
+  string email = 2;
+  // 電話番号
+  string phone = 3;
+  // 生年月日
+  string birth_date = 4;
+  // 性別
+  Gender gender = 5;
+}
+
+enum Gender {
+  NOT_KNOWN = 0;
+  MALE = 1;
+  FEMALE = 2;
+}
